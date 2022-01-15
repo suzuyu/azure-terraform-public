@@ -1,3 +1,6 @@
+# ALL
+azure_all_subnet_range_list = ["172.22.0.0/16", ] # Azure 内のサブネット全体レンジリスト
+
 # hub
 hub_resource_group      = "hub-rg"            # Hub リソースグループ名
 hub_environment_tags    = "homelab"           # Hub リソースタグ

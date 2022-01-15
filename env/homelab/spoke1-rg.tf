@@ -24,7 +24,8 @@ module "spoke1-route-table" {
   ]
 
   to_gw_routes_list = concat(
-    module.spoke2-rg.virtual_network.address_space,
+    # module.spoke2-rg.virtual_network.address_space,
+    var.azure_all_subnet_range_list,
   )
 }
 
