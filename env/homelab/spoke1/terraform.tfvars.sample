@@ -1,55 +1,20 @@
 # ALL
 azure_all_subnet_range_list = ["172.22.0.0/16", ] # Azure 内のサブネット全体レンジリスト
 
-# hub
-hub_resource_group      = "hub-rg"            # Hub リソースグループ名
-hub_environment_tags    = "homelab"           # Hub リソースタグ
-hub_location            = "japaneast"         # Hub ロケーション (japaneast = 東日本リージョン)
-hub_vnet_name           = "hub-vnet"          # Hub VNET 名
-hub_address_space       = ["172.22.0.0/20", ] # Hub VNET アドレススペース (List)
-hub_GatewaySubnet       = "172.22.1.0/24"     # Hub VNET GatewaySubnet
-hub_AzureFirewallSubnet = "172.22.2.0/24"     # 現状未構築
-
-## hub vpn to onprem
-vpn_name                   = "homelab-vpn"                      # Azure 側 VPN リソース名
-onprem_public_ip           = "X.X.X.X"                          # Home Lab 側 VPN Public IP
-shared_key                 = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" # openssl rand -base64 24 などで作成した共通鍵
-onprem_bgp_neighbor_subnet = "192.168.131.0/24"                 # Home Lab 側 BGP Neighbor Subnets
-onprem_asn                 = "65001"                            # Home Lab 側 BGP AS Number
-onprem_bgp_neighbor_addr   = "192.168.131.2"                    # Home Lab 側 BGP Neighbor Peering IP
-bgp_asn                    = "65021"                            # Azure 側 BGP AS Number
-
-firewall_name = "hub-azure-firewall" # 現状未構築
-
 # spoke1
-spoke1_resource_group   = "spoke1-rg"          # spoke1 リソースグループ名
-spoke1_environment_tags = "homelab"            # spoke1 リソースタグ
-spoke1_location         = "japaneast"          # spoke1 ロケーション (japaneast = 東日本リージョン)
-spoke1_vnet_name        = "spoke1-vnet"        # spoke1 VNET 名
-spoke1_address_space    = ["172.22.16.0/20", ] # spoke1 VNET アドレススペース (List)
-spoke1_subnet1          = "172.22.16.0/24"     # spoke1 VM リソース用サブネット
+spoke_resource_group   = "spoke1-rg"          # spoke リソースグループ名
+spoke_environment_tags = "homelab"            # spoke リソースタグ
+spoke_location         = "japaneast"          # spoke ロケーション (japaneast = 東日本リージョン)
+spoke_vnet_name        = "spoke1-vnet"        # spoke VNET 名
+spoke_address_space    = ["172.22.16.0/20", ] # spoke VNET アドレススペース (List)
+spoke_subnet1          = "172.22.16.0/24"     # spoke VM リソース用サブネット
 
 ## spoke1 linux vm (Default: Ubuntu20.04 LTS Server)
-spoke1_vm1_name                    = "spoke1-bastion-vm" # spoke1 linux vm hostname
-spoke1_vm1_size                    = "Standard_B1s"      # spoke1 linux vm size
-spoke1_vm1_admin_username          = "adminuser"         # spoke1 linux vm admin username
-spoke1_vm1_admin_ssh_key_file_path = "./id_rsa.pub"      # spoke1 linux vm ssh public key file path
-spoke1_vm1_os_disk_type            = "Standard_LRS"      # spoke1 linux vm os disk type
-
-# spoke2
-spoke2_resource_group   = "spoke2-rg"          # spoke2 リソースグループ名
-spoke2_environment_tags = "homelab"            # spoke2 リソースタグ
-spoke2_location         = "japaneast"          # spoke2 ロケーション (japaneast = 東日本リージョン)
-spoke2_vnet_name        = "spoke2-vnet"        # spoke2 VNET 名
-spoke2_address_space    = ["172.22.32.0/20", ] # spoke2 VNET アドレススペース (List)
-spoke2_subnet1          = "172.22.32.0/24"     # spoke2 VM リソース用サブネット
-
-## spoke2 windows vm (Default: Windows11 Pro)
-spoke2_vm1_name           = "spoke2-win-vm"    # spoke2 windows vm hostname
-spoke2_vm1_size           = "Standard_B1s"     # spoke2 linwindowsux vm size
-spoke2_vm1_admin_username = "adminuser"        # spoke2 windows vm admin username
-spoke2_vm1_admin_password = "XXXXXXXXXXXXXXXX" # spoke2 windows vm password
-spoke2_vm1_os_disk_type   = "Standard_LRS"     # spoke2 windows vm os disk type
+spoke_vm1_name                    = "spoke1-bastion-vm" # spoke linux vm hostname
+spoke_vm1_size                    = "Standard_B1s"      # spoke linux vm size
+spoke_vm1_admin_username          = "adminuser"         # spoke linux vm admin username
+spoke_vm1_admin_ssh_key_file_path = "./id_rsa.pub"      # spoke linux vm ssh public key file path
+spoke_vm1_os_disk_type            = "Standard_LRS"      # spoke linux vm os disk type
 
 # spoke 共通
 ## spoke subnet security group 外部アクセス許可アドレス帯 (下記例、Softbank iPhone テザリング サブネット帯(外部アクセス用))

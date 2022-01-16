@@ -179,17 +179,79 @@ main.tf の `storage_account_name` を実際に作成した値(`echo $STORAGE_AC
 ## 変数作成
 
 ```
-cd env/homelab/
-cp terraform.tfvars.sample terraform.tfvars
+cd ~/azure-terraform/env/homelab/hub/
+vi main.tf
+cp -n terraform.tfvars.sample terraform.tfvars
+vi terraform.tfvars
 ```
 
 `XXXXX`になっている変数を穴埋め、その他パラメータを環境に合わせて修正
 
+上記を各リソースフォルダでも同様に実施
+
+```
+cd ~/azure-terraform/env/homelab/spoke1/
+cd ~/azure-terraform/env/homelab/spoke2/
+```
+
 ## 実施
 
+Hub リソース作成
+
 ```sh
-cd azure-terraform/env/homelab/
+cd ~/azure-terraform/env/homelab/hub/
 terraform init
+terraform plan
+terraform apply
+```
+
+Spoke1 リソースグループ作成
+
+```sh
+cd ~/azure-terraform/env/homelab/spoke1/
+terraform init
+terraform plan -target=module.spoke-rg
+terraform apply -target=module.spoke-rg
+```
+
+Spoke2 リソースグループ作成
+
+```sh
+cd ~/azure-terraform/env/homelab/spoke2/
+terraform init
+terraform plan -target=module.spoke-rg
+terraform apply -target=module.spoke-rg
+```
+
+Hub to Spoke VNET ピアリング
+
+Hub/Spoke1/Spoke2 での output 結果を参考に変数の穴埋めしてから実施
+
+```sh
+cd ~/azure-terraform/env/homelab/vnet-peering/
+vi main.tf
+cp -n terraform.tfvars.sample terraform.tfvars
+vi terraform.tfvars
+```
+
+```sh
+terraform init
+terraform plan
+terraform apply
+```
+
+Spoke1 リソース作成
+
+```sh
+cd ~/azure-terraform/env/homelab/spoke1/
+terraform plan
+terraform apply
+```
+
+Spoke2 リソース作成
+
+```sh
+cd ~/azure-terraform/env/homelab/spoke2/
 terraform plan
 terraform apply
 ```

@@ -1,0 +1,38 @@
+variable "azure_all_subnet_range_list" {}
+
+variable "spoke_allow_external_source_address_prefixes" {}
+
+## spoke-rg
+variable "spoke_resource_group" {}
+
+variable "spoke_environment_tags" {}
+
+variable "spoke_location" {}
+
+variable "spoke_vnet_name" {}
+
+variable "spoke_address_space" {}
+
+variable "spoke_subnet1" {}
+
+variable "spoke_vm1_name" {}
+
+variable "spoke_vm1_size" {}
+
+variable "spoke_vm1_admin_username" {}
+
+variable "spoke_vm1_admin_password" {}
+
+variable "spoke_vm1_os_disk_type" {}
+
+variable "spoke_vm1_publisher" {
+  default = "microsoftwindowsdesktop"
+}
+
+variable "spoke_vm1_offer" {
+  default = "windows-11"
+}
+
+variable "spoke_vm1_sku" {
+  default = "win11-21h2-pro"
+}

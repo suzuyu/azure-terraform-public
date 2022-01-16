@@ -1,4 +1,4 @@
-variable "hub_resource_group" {}
+variable "hub_resource_group_name" {}
 
 variable "hub_virtual_network_name" {}
 
