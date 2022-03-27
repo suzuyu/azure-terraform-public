@@ -1,0 +1,10 @@
+# Hub VNET Paramater / ../vnet Outputs
+resource_group_name = "jw-hub-rg"
+
+virtual_network_name = "jw-hub-vnet"
+
+virtual_network_id = ""
+# Spoke Peering
+spoke_peering_vnets = {
+  jw-spoke1-vnet = ""
+}

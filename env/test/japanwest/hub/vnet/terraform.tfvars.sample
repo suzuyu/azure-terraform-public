@@ -1,0 +1,25 @@
+# VNET Param
+resource_group_name  = "jw-hub-rg"         # リソースグループ名
+location             = "japanwest"         # ロケーション (japanwest = 西日本リージョン)
+virtual_network_name = "jw-hub-vnet"       # VNET 名
+address_space        = ["172.23.0.0/20", ] # VNET アドレススペース (List)
+subnets = {
+  GatewaySubnet = {
+    address_prefix = "172.23.1.0/24" # Gateway 用 Subnet
+  },
+  AzureFirewallSubnet = {
+    address_prefix = "172.23.2.0/24" # Azure Firewall 用 Subnet
+  },
+  RouterSubnet = {
+    address_prefix = "172.23.3.0/24" # Router 用 Subnet
+  },
+}
+
+# to SubRegion Peering
+subregion_virtual_network_name = "je-hub-vnet" # 別リージョン Hub VNET 名
+subregion_virtual_network_id   = ""            # 別リージョン Hub VNET ID
+
+# to SubRegion Route
+to_subregion_next_hop_address = "172.22.3.254"
+
+to_subregion_destination_subnet_list = ["172.22.0.0/16", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", ]

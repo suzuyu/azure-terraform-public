@@ -1,0 +1,12 @@
+# Resouce Group Param
+resource_group_name = "jw-hub-rg" # リソースグループ名
+location            = "japanwest" # ロケーション (japaneast = 東日本リージョン)
+
+## spoke1 linux vm (Default: Ubuntu20.04 LTS Server)
+router_name                    = "jw-hub-router-vm" # spoke linux vm hostname
+router_size                    = "Standard_B1ls"    # "Standard_B1s"     # spoke linux vm size B1s: ¥1,147.6769/月, B1ls: ¥573.8385/月
+router_admin_username          = "adminuser"        # spoke linux vm admin username
+router_admin_ssh_key_file_path = "./id_rsa.pub"     # spoke linux vm ssh public key file path
+router_os_disk_type            = "Standard_LRS"     # spoke linux vm os disk type
+router_subnet_id               = ""
+router_private_ip_address      = "172.23.3.254"

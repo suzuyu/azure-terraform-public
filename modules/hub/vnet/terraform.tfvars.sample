@@ -1,0 +1,17 @@
+resource_group_name = "je-hub-rg"         # リソースグループ名
+location            = "japaneast"         # ロケーション (japaneast = 東日本リージョン)
+vnet_name           = "je-hub-vnet"       # VNET 名
+address_space       = ["172.22.0.0/20", ] # VNET アドレススペース (List)
+
+subnets = {
+  GatewaySubnet = {
+    address_prefix = "172.22.1.0/24"
+  },
+  AzureFirewallSubnet = {
+    address_prefix = "172.22.2.0/24"
+  },
+}
+
+to_subregion_next_hop_address = "172.23.1.254"
+
+to_subregion_destination_subnet_list = ["172.23.0.0/20", ]

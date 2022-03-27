@@ -1,0 +1,18 @@
+resource_group_name  = "je-spoke1-rg"       # リソースグループ名
+location             = "japaneast"          # ロケーション (japaneast = 東日本リージョン)
+virtual_network_name = "je-spoke1-vnet"     # VNET 名
+address_space        = ["172.22.16.0/20", ] # VNET アドレススペース (List)
+
+subnets = {
+  VmSubnet = {
+    address_prefix = "172.22.16.0/24"
+  },
+}
+
+hub_virtual_network_name = "je-hub-vnet"
+hub_virtual_network_id   = ""
+
+# to Hub Route
+to_hub_next_hop_address = "172.22.3.254" # Hub のルーティング先 (Hub の Azure Firewall やルーター VM の IP)
+
+to_hub_destination_subnet_list = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", ] # Hub 経由でルーティングするサブネット
