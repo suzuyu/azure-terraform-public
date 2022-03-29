@@ -1,0 +1,24 @@
+# Resouce Group Param
+resource_group_name = "je-hub-rg" # リソースグループ名 (../terraform.tfvarsと同じ)
+location            = "japaneast" # ロケーション (japaneast = 東日本リージョン) (../terraform.tfvarsと同じ)
+
+## Azure Firewwall
+azure_firewall_name = "je-hub-firewall"
+
+# rules
+test_rules = [
+  {
+    name                  = "172_to_172_ICMP_permit"
+    source_addresses      = ["172.16.0.0/12", ]
+    destination_addresses = ["172.16.0.0/12", ]
+    protocols             = ["ICMP"]
+    destination_ports     = ["*"]
+  },
+  {
+    name                  = "172_to_172_and_192_permit"
+    source_addresses      = ["172.16.0.0/12", ]
+    destination_addresses = ["172.16.0.0/12", ]
+    protocols             = ["TCP"]
+    destination_ports     = ["22"]
+  },
+]

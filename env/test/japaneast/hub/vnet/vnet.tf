@@ -18,6 +18,11 @@ output "virtual_network_id" {
   value = module.vnet.virtual_network_id
 }
 
+# subnet 情報出力
+output "subnets" {
+  value = module.vnet.subnets
+}
+
 # VPN でのローカル環境接続
 module "onprem-vpn-gateway" {
   source = "../../../../../modules/hub/vnet/onprem-vpn-gateway"
