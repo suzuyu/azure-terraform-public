@@ -1,11 +1,11 @@
 # Hub VNET Paramater / ../vnet Outputs
-resource_group_name = "je-hub-rg" # Hub のリソースグループ名 (../terraform.tfvars と同じ)
+resource_group_name = "rg-hub-testinfra-japaneast-001" # Hub のリソースグループ名 (../terraform.tfvars と同じ)
 
-virtual_network_name = "je-hub-vnet" # Hub の VNET 名 (../terraform.tfvars と同じ)
+virtual_network_name = "vnet-testinfra-japaneast-001" # Hub の VNET 名 (../terraform.tfvars と同じ)
 
 virtual_network_id = "" # ../ の出力結果をコピペ (../terraform.tfvars と同じ)
 
 # Spoke Peering
 spoke_peering_vnets = {
-  je-spoke1-vnet = "" # key: 接続する spoke の　vnet名, value: 接続する spoke の vnet id
+  vnet-testspoke-japaneast-001 = "" # key: 接続する spoke の　vnet名, value: 接続する spoke の vnet id
 }

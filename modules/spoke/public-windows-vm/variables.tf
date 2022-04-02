@@ -30,3 +30,9 @@ variable "sku" {
   default = "win11-21h2-pro"
   # default = "2016-Datacenter"
 }
+
+variable "disk_size_gb" {
+  default = 128
+  # Win11 最小要件：https://www.microsoft.com/ja-jp/windows/windows-11-specifications
+  # the size of the corresponding disk in the VM image: 127 GB.
+}

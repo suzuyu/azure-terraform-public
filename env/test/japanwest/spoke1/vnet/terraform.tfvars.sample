@@ -1,6 +1,6 @@
-resource_group_name  = "jw-spoke1-rg"       # リソースグループ名
+resource_group_name  = "rg-spoke-testinfra-japanwest-001"       # リソースグループ名
 location             = "japanwest"          # ロケーション (japanwest = 西日本リージョン)
-virtual_network_name = "jw-spoke1-vnet"     # VNET 名
+virtual_network_name = "vnet-testspoke-japanwest-001"     # VNET 名
 address_space        = ["172.23.16.0/20", ] # VNET アドレススペース (List)
 
 subnets = {
@@ -9,7 +9,7 @@ subnets = {
   },
 }
 
-hub_virtual_network_name = "jw-hub-vnet"
+hub_virtual_network_name = "vnet-testinfra-japanwest-001"
 hub_virtual_network_id   = ""
 
 # to Hub Route

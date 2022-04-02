@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "public-vm-pip" {
-  name                = "${var.vm_name}-pip"
+  name                = "pip-${var.vm_name}-${var.location}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
   allocation_method   = "Dynamic"
@@ -10,7 +10,7 @@ resource "azurerm_public_ip" "public-vm-pip" {
 }
 
 resource "azurerm_network_interface" "public-vm-nic" {
-  name                 = "${var.vm_name}-nic"
+  name                 = "nic-01-${var.vm_name}-001"
   location             = var.location
   resource_group_name  = var.resource_group_name
   enable_ip_forwarding = true
@@ -36,6 +36,7 @@ resource "azurerm_windows_virtual_machine" "public-vm" {
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = var.os_disk_type
+    disk_size_gb         = var.disk_size_gb
   }
 
   source_image_reference {

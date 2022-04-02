@@ -2,12 +2,13 @@
 # https://azure.microsoft.com/ja-jp/pricing/details/ip-addresses/
 
 resource "azurerm_public_ip" "firewall" {
-  name                = "${var.firewall_name}-public-ip"
+  name                = var.pip_name
   location            = var.location
   resource_group_name = var.resource_group_name
   # The Public IP must have a Static allocation and Standard sku.
   allocation_method = "Static"
   sku               = "Standard"
+  availability_zone = "No-Zone"
   tags = {
     environment = var.environment_tags
   }

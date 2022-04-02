@@ -2,7 +2,7 @@
 # https://azure.microsoft.com/ja-jp/pricing/details/ip-addresses/
 
 resource "azurerm_public_ip" "main" {
-  name                = "${var.vpn_name}-gateway-pip"
+  name                = "pip-${var.vpn_name}-${var.location}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
   # allocation_method   = "Static"
@@ -11,7 +11,7 @@ resource "azurerm_public_ip" "main" {
 }
 
 resource "azurerm_virtual_network_gateway" "main" {
-  name                = "${var.vpn_name}-gateway"
+  name                = "vgw-${var.vpn_name}-${var.location}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -38,7 +38,7 @@ resource "azurerm_virtual_network_gateway" "main" {
 
 # ローカル(オンプレミス)側情報
 resource "azurerm_local_network_gateway" "main" {
-  name                = "${var.vpn_name}-local-network-gateway"
+  name                = "lgw-${var.vpn_name}-${var.location}-001"
   location            = var.location
   resource_group_name = var.resource_group_name
   gateway_address     = var.onprem_public_ip
@@ -54,7 +54,7 @@ resource "azurerm_local_network_gateway" "main" {
 
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_gateway_connection
 resource "azurerm_virtual_network_gateway_connection" "main" {
-  name                = "${var.vpn_name}-connection"
+  name                = "con-${azurerm_virtual_network_gateway.main.name}-${azurerm_local_network_gateway.main.name}"
   location            = var.location
   resource_group_name = var.resource_group_name
 

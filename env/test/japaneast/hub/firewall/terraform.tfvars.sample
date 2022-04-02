@@ -1,8 +1,8 @@
 # Resouce Group Param
-resource_group_name = "je-hub-rg" # リソースグループ名 (../terraform.tfvarsと同じ)
+resource_group_name = "rg-hub-testinfra-japaneast-001" # リソースグループ名 (../terraform.tfvarsと同じ)
 location            = "japaneast" # ロケーション (japaneast = 東日本リージョン) (../terraform.tfvarsと同じ)
 
 ## Azure Firewwall
-environment_tags = "je-hub-firewall"
-subnet_id        = "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXX/resourceGroups/je-hub-rg/providers/Microsoft.Network/virtualNetworks/je-hub-vnet/subnets/AzureFirewallSubnet"
-firewall_name    = "je-hub-firewall"
+environment_tags = "afw-testinfra-japaneast-001"
+subnet_id        = "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXX/resourceGroups/rg-hub-testinfra-japaneast-001/providers/Microsoft.Network/virtualNetworks/vnet-testinfra-japaneast-001/subnets/AzureFirewallSubnet"
+firewall_name    = "afw-testinfra-japaneast-001"

@@ -5,7 +5,7 @@ Azure Terraform
 
 ## 全体概要図
 
-![概要図.png](images/概要図_2022-01-10.png)
+![概要図.png](images/Azure概要図_2022-04-02.png)
 
 ## azure-cli (az) Install
 
@@ -170,88 +170,21 @@ export ARM_TENANT_ID=abcdefgh-abcd-4321-efgh-123456789abc
 
 main.tf の `storage_account_name` を実際に作成した値(`echo $STORAGE_ACCOUNT_NAME`)に書き換える
 
-```tf:XXXXXの箇所を書き換える
-    backend "azurerm" {
-        storage_account_name = "XXXXX"
-    }
-```
+`./env/test/README.md`を参照
 
-## 変数作成
+## 各リソース作成
+リージョン・リソースグループ・リソースごとの階層で `./env/test/` 配下を作成している
+各ディレクトリの `README.md` の記載項目を確認して terraform を実行する
 
-```
-cd ~/azure-terraform/env/homelab/hub/
-vi main.tf
-cp -n terraform.tfvars.sample terraform.tfvars
-vi terraform.tfvars
-```
+## リソース命名規則
 
-`XXXXX`になっている変数を穴埋め、その他パラメータを環境に合わせて修正
+下記 Azure ドキュメントの推奨事項を参考にしている
 
-上記を各リソースフォルダでも同様に実施
+https://docs.microsoft.com/ja-jp/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
 
-```
-cd ~/azure-terraform/env/homelab/spoke1/
-cd ~/azure-terraform/env/homelab/spoke2/
-```
+## 費用
+無料枠が12ヶ月限定のものが多くネットワークリソースも高額な費用がかかるものが多いので要注意
 
-## 実施
+無料枠：https://azure.microsoft.com/ja-jp/free/search/
 
-Hub リソース作成
-
-```sh
-cd ~/azure-terraform/env/homelab/hub/
-terraform init
-terraform plan
-terraform apply
-```
-
-Spoke1 リソースグループ作成
-
-```sh
-cd ~/azure-terraform/env/homelab/spoke1/
-terraform init
-terraform plan -target=module.spoke-rg
-terraform apply -target=module.spoke-rg
-```
-
-Spoke2 リソースグループ作成
-
-```sh
-cd ~/azure-terraform/env/homelab/spoke2/
-terraform init
-terraform plan -target=module.spoke-rg
-terraform apply -target=module.spoke-rg
-```
-
-Hub to Spoke VNET ピアリング
-
-Hub/Spoke1/Spoke2 での output 結果を参考に変数の穴埋めしてから実施
-
-```sh
-cd ~/azure-terraform/env/homelab/vnet-peering/
-vi main.tf
-cp -n terraform.tfvars.sample terraform.tfvars
-vi terraform.tfvars
-```
-
-```sh
-terraform init
-terraform plan
-terraform apply
-```
-
-Spoke1 リソース作成
-
-```sh
-cd ~/azure-terraform/env/homelab/spoke1/
-terraform plan
-terraform apply
-```
-
-Spoke2 リソース作成
-
-```sh
-cd ~/azure-terraform/env/homelab/spoke2/
-terraform plan
-terraform apply
-```
+価格：https://azure.microsoft.com/ja-jp/pricing/

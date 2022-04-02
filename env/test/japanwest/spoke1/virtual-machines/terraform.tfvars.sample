@@ -1,9 +1,9 @@
 # Resouce Group Param
-resource_group_name = "jw-spoke1-rg" # リソースグループ名
+resource_group_name = "rg-spoke-testinfra-japanwest-001" # リソースグループ名
 location            = "japanwest"    # ロケーション (japanwest = 西日本リージョン)
 
 ## spoke2 windows vm (Default: Windows11 Pro)
-spoke_vm1_name           = "jw-spoke1-win" # spoke windows vm hostname
+spoke_vm1_name           = "vmspokewinbastion001" # spoke windows vm hostname
 spoke_vm1_size           = "Standard_B1s"  # spoke linwindowsux vm size
 spoke_vm1_admin_username = "adminuser"     # spoke windows vm admin username
 spoke_vm1_admin_password = ""              # spoke windows vm ssh public key file path

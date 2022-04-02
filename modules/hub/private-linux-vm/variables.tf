@@ -36,3 +36,9 @@ variable "private_ip_address" {
   type    = string
   default = ""
 }
+
+variable "disk_size_gb" {
+  default = 30
+  # Disk: a minimum of 2.5 gigabytes https://ubuntu.com/server/docs/installation
+  # the size of the corresponding disk in the VM image: 30 GB.
+}

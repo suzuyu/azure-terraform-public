@@ -20,3 +20,8 @@ terraform apply
 
 `./vnet` へ移動して `./vnet/README.md` を参照
 
+## リージョン間ルータ
+
+[スポーク間の接続が必要な場合は、Azure Firewall またはその他のネットワーク仮想アプライアンスをデプロイすること](https://docs.microsoft.com/ja-jp/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli#spoke-connectivity)
+
+`./firewall` もしkは `./virtual-machines` でルーティングできるリソースを作成する

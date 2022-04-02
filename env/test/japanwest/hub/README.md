@@ -12,11 +12,16 @@ vi terraform.tfvars
 
 ```sh
 terraform init
-terraform plan -target=module.vnet
-terraform apply -target=module.vnet
+terraform plan
+terraform apply
 ```
 
 ## 各コンポーネントを実施
 
 `./vnet` へ移動して `./vnet/README.md` を参照
 
+## リージョン間ルータ
+
+[スポーク間の接続が必要な場合は、Azure Firewall またはその他のネットワーク仮想アプライアンスをデプロイすること](https://docs.microsoft.com/ja-jp/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli#spoke-connectivity)
+
+`./firewall` もしkは `./virtual-machines` でルーティングできるリソースを作成する

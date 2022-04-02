@@ -7,7 +7,7 @@ resource "azurerm_route_table" "main" {
 
 resource "azurerm_route" "main" {
   for_each               = toset(var.to_hub_destination_subnet_list)
-  name                   = "to_hub_${replace(each.value, "/", "_")}"
+  name                   = "to-${replace(each.value, "/", "_")}"
   resource_group_name    = var.resource_group_name
   route_table_name       = azurerm_route_table.main.name
   address_prefix         = each.value

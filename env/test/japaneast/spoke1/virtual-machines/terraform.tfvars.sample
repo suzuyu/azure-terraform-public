@@ -1,9 +1,9 @@
 # Resouce Group Param
-resource_group_name = "je-spoke1-rg" # リソースグループ名
+resource_group_name = "rg-spoke-testinfra-japaneast-001" # リソースグループ名
 location            = "japaneast"    # ロケーション (japaneast = 東日本リージョン)
 
 ## spoke1 linux vm (Default: Ubuntu20.04 LTS Server)
-spoke_vm1_name                    = "spoke1-bastion-vm" # spoke linux vm hostname
+spoke_vm1_name                    = "vmspokebastion001" # spoke linux vm hostname
 spoke_vm1_size                    = "Standard_B1s"      # spoke linux vm size
 spoke_vm1_admin_username          = "adminuser"         # spoke linux vm admin username
 spoke_vm1_admin_ssh_key_file_path = "./id_rsa.pub"      # spoke linux vm ssh public key file path

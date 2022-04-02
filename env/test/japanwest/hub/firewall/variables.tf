@@ -1,5 +1,8 @@
-variable "resource_group" {}
+variable "resource_group_name" {}
 
+variable "location" {}
+
+## firewall
 variable "environment_tags" {}
 
 variable "subnet_id" {}

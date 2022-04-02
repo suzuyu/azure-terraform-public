@@ -1,3 +1,3 @@
 # Resouce Group Param
-resource_group_name = "jw-spoke1-rg" # リソースグループ名
+resource_group_name = "rg-spoke-testinfra-japanwest-001" # リソースグループ名
 location            = "japanwest"    # ロケーション (japanwest = 西日本リージョン)

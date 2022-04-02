@@ -75,14 +75,17 @@ module "udr" {
   resource_group_name                  = var.resource_group_name
   location                             = var.location
   route_table_name                     = var.route_table_name
-  subnets_id_list                      = [module.vnet.subnets["GatewaySubnet"].id, module.vnet.subnets["RouterSubnet"].id, ]
+  subnets_id_list                      = [module.vnet.subnets["GatewaySubnet"].id, module.vnet.subnets[var.to_subregion_routing_subnet_name].id, ]
   to_subregion_destination_subnet_list = var.to_subregion_destination_subnet_list
   to_subregion_next_hop_address        = var.to_subregion_next_hop_address
   # subnet_id                            = module.vnet.subnets["RouterSubnet"].id
+  depends_on = [
+    module.subregion-peering,
+  ]
 }
 
 # Spoke との Peering
 ## ./spoke_peering/ に別記載
 
 # Azure Firewall
-## ./az-firewall/ に別記載
+## ../firewall/ に別記載

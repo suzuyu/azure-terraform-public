@@ -1,5 +1,5 @@
 resource "azurerm_network_interface" "private-vm-nic" {
-  name                 = "${var.vm_name}-nic"
+  name                 = "nic-01-${var.vm_name}-001"
   location             = var.location
   resource_group_name  = var.resource_group_name
   enable_ip_forwarding = true
@@ -28,6 +28,7 @@ resource "azurerm_linux_virtual_machine" "private-vm" {
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = var.os_disk_type
+    disk_size_gb         = var.disk_size_gb
   }
 
   source_image_reference {

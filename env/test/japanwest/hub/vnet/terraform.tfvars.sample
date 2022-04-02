@@ -1,7 +1,7 @@
 # VNET Param
-resource_group_name  = "jw-hub-rg"         # リソースグループ名
+resource_group_name  = "rg-hub-testinfra-japanwest-001"         # リソースグループ名
 location             = "japanwest"         # ロケーション (japanwest = 西日本リージョン)
-virtual_network_name = "jw-hub-vnet"       # VNET 名
+virtual_network_name = "vnet-testinfra-japanwest-001"       # VNET 名
 address_space        = ["172.23.0.0/20", ] # VNET アドレススペース (List)
 subnets = {
   GatewaySubnet = {
@@ -16,7 +16,7 @@ subnets = {
 }
 
 # to SubRegion Peering
-subregion_virtual_network_name = "je-hub-vnet" # 別リージョン Hub VNET 名
+subregion_virtual_network_name = "vnet-testinfra-japaneast-001" # 別リージョン Hub VNET 名
 subregion_virtual_network_id   = ""            # 別リージョン Hub VNET ID
 
 # to SubRegion Route

@@ -18,6 +18,11 @@ output "virtual_network_id" {
   value = module.vnet.virtual_network_id
 }
 
+# subnet 情報出力
+output "subnets" {
+  value = module.vnet.subnets
+}
+
 # 冗長での他リージョンの Hub との Peerirng
 module "subregion-peering" {
   source                      = "../../../../../modules/hub/vnet/vnet-peering"
@@ -34,17 +39,16 @@ module "udr" {
   resource_group_name                  = var.resource_group_name
   location                             = var.location
   route_table_name                     = var.route_table_name
-  subnets_id_list                      = [module.vnet.subnets["RouterSubnet"].id]
+  subnets_id_list                      = [module.vnet.subnets[var.to_subregion_routing_subnet_name].id]
   to_subregion_destination_subnet_list = var.to_subregion_destination_subnet_list
   to_subregion_next_hop_address        = var.to_subregion_next_hop_address
+  depends_on = [
+    module.subregion-peering,
+  ]
 }
 
 # Spoke との Peering
 ## ./spoke_peering/ に別記載
 
 # Azure Firewall
-## ./az-firewall/ に別記載
-
-output "azure-firewall-subnets" {
-  value = module.vnet.subnets["AzureFirewallSubnet"].id
-}
+## ../firewall/ に別記載

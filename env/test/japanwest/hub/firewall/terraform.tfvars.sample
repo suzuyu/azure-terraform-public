@@ -1,0 +1,8 @@
+# Resouce Group Param
+resource_group_name = "rg-hub-testinfra-japanwest-001" # リソースグループ名 (../terraform.tfvarsと同じ)
+location            = "japanwest" # ロケーション (japanwest = 西日本リージョン) (../terraform.tfvarsと同じ)
+
+## Azure Firewwall
+environment_tags = "afw-testinfra-japanwest-001"
+subnet_id        = "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXX/resourceGroups/rg-hub-testinfra-japanwest-001/providers/Microsoft.Network/virtualNetworks/vnet-testinfra-japanwest-001/subnets/AzureFirewallSubnet"
+firewall_name    = "afw-testinfra-japanwest-001"

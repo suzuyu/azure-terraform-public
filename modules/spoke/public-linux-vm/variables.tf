@@ -27,3 +27,9 @@ variable "offer" {
 variable "sku" {
   default = "20_04-lts-gen2"
 }
+
+variable "disk_size_gb" {
+  default = 30
+  # Disk: a minimum of 2.5 gigabytes https://ubuntu.com/server/docs/installation
+  # the size of the corresponding disk in the VM image: 30 GB.
+}

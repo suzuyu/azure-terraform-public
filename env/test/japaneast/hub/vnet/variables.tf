@@ -35,5 +35,5 @@ variable "subregion_virtual_network_id" {}
 
 variable "route_table_name" {
   type    = string
-  default = "to_subregion"
+  default = "route-tosubregion"
 }
