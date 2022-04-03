@@ -22,7 +22,7 @@ resource "azurerm_network_security_rule" "ingress-rule-1" {
 
 # Azure Bastion からのイグレス トラフィックのコントロール プレーン: コントロール プレーン接続の場合は、GatewayManager サービス タグからのポート 443 受信を有効にします。 これにより、コントロール プレーン、つまりゲートウェイ マネージャーから Azure Bastion への通信が可能になります。
 resource "azurerm_network_security_rule" "ingress-rule-2" {
-  name                        = "Allow-HTTPS-from-AzureLoadBlancer"
+  name                        = "Allow-HTTPS-from-GatewayManager"
   priority                    = 1010
   direction                   = "Inbound"
   access                      = "Allow"
