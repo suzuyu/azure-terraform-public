@@ -71,7 +71,7 @@ resource "azurerm_network_security_rule" "ingress-rule-deny" {
   priority                    = 4096
   direction                   = "Inbound"
   access                      = "Deny"
-  protocol                    = "TCP"
+  protocol                    = "*"
   source_port_range           = "*"
   destination_port_range      = "*"
   source_address_prefix       = "*"
@@ -141,7 +141,7 @@ resource "azurerm_network_security_rule" "egress-rule-4" {
 }
 
 resource "azurerm_network_security_rule" "egress-rule-deny" {
-  name                        = "Allow-HTTPS-to-AzureCloud"
+  name                        = "Deny-All"
   priority                    = 4096
   direction                   = "Outbound"
   access                      = "Deny"
