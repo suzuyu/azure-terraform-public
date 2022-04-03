@@ -5,14 +5,17 @@ virtual_network_name = "vnet-testinfra-japaneast-001"       # VNET 名
 address_space        = ["172.22.0.0/20", ] # VNET アドレススペース (List)
 subnets = {
   GatewaySubnet = {
-    address_prefix = "172.22.1.0/24" # Gateway 用 Subnet
+    address_prefix = "172.22.1.0/24" # Gateway 用 Subnet /27 以上
   },
   AzureFirewallSubnet = {
-    address_prefix = "172.22.2.0/24" # Azure Firewall 用 Subnet
+    address_prefix = "172.22.2.0/24" # Azure Firewall 用 Subnet /26 以上
   },
   RouterSubnet = {
     address_prefix = "172.22.3.0/24" # Router 用 Subnet
   },
+  AzureBastionSubnet = {
+    address_prefix = "172.22.4.0/24" # Azure Bastion 用 Subnets /26 以上
+  }
 }
 
 # to SubRegion Peering
