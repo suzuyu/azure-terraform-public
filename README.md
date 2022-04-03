@@ -5,7 +5,11 @@ Azure Terraform
 
 ## 全体概要図
 
-![概要図.png](images/Azure概要図_2022-04-02.png)
+![概要図.png](images/Azure概要図_2022-04-03.png)
+
+凡例
+![凡例.png](images/Azure構成図凡例_2022-04-03.png)
+
 
 ## azure-cli (az) Install
 
