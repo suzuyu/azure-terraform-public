@@ -9,6 +9,8 @@ https://azure.microsoft.com/ja-jp/pricing/details/azure-bastion/
 ## 前提
 ../ および、 ../vnet/ を実施済み
 
+../vnet/ で AzureBastionSubnet を作成済み (/26以上)
+
 ## パラメータ穴埋め
 
 ```sh
