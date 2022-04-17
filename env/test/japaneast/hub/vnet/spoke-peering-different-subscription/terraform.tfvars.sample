@@ -1,0 +1,6 @@
+# Hub VNET Paramater / ../vnet Outputs
+resource_group_name = "rg-hub-testinfra-japaneast-001" # Hub のリソースグループ名 (../terraform.tfvars と同じ)
+
+virtual_network_name = "vnet-testinfra-japaneast-001" # Hub の VNET 名 (../terraform.tfvars と同じ)
+
+virtual_network_id = "" # ../ の出力結果をコピペ (../terraform.tfvars と同じ)

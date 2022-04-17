@@ -1,0 +1,14 @@
+# Spoke との Peering
+module "spoke-peering-infratest2" {
+  source = "../../../../../../modules/hub/vnet/spoke-peering-different-subscription"
+
+  hub_resource_group_name  = var.resource_group_name
+  hub_virtual_network_name = var.virtual_network_name
+  hub_tenant_id            = "ceXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX1"
+  hub_subscription_id      = "38XXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX7"
+
+  spoke_resource_group_name  = "rg-testinfra2-japaneast-001"
+  spoke_virtual_network_name = "vnet-testinfra2-japaneast-001"
+  spoke_tenant_id            = "edXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX4"
+  spoke_subscription_id      = "a4XXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX9"
+}
