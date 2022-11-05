@@ -11,3 +11,9 @@ module "deny-nic-public-ip" {
   management_group_id = module.infra-mg.management_group_id
 }
 
+module "disable_storage_account_public_access" {
+  source = "../../../modules/azure-policy/disable_storage_account_public_access"
+
+  management_group_id = module.infra-mg.management_group_id
+  effect              = "Deny" # audit, Audit, deny, Deny, disabled, Disabled
+}

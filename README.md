@@ -125,6 +125,9 @@ az storage account create --resource-group $RESOURCE_GROUP_NAME --name $STORAGE_
 
 # Create blob container
 az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME
+
+# Allow Blob public access Disable
+az storage account update --resource-group $RESOURCE_GROUP_NAME --name $STORAGE_ACCOUNT_NAME --allow-blob-public-access false
 ```
 
 ## Create ARM ACCESS KEY
